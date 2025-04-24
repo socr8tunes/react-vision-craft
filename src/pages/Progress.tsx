@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
@@ -6,8 +5,8 @@ import { Award, Clock } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Legend, PieChart, Pie, Cell } from "recharts";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress as ProgressBar } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
-// Mock progress data
 const studyTimeData = [
   { name: "Mon", hours: 2.5 },
   { name: "Tue", hours: 1.8 },
@@ -260,8 +259,10 @@ export default function Progress() {
                       </div>
                       <ProgressBar 
                         value={course.progress} 
-                        className="h-2" 
-                        indicatorClassName={course.progress === 100 ? "bg-green-500" : ""}
+                        className={cn(
+                          "h-2",
+                          course.progress === 100 ? "bg-green-500" : ""
+                        )}
                       />
                       <div className="flex justify-end mt-2">
                         {course.progress === 100 ? (
