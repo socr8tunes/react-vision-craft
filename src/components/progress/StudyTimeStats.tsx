@@ -1,5 +1,4 @@
-
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 
 interface StudyTimeData {
   name: string;
@@ -16,7 +15,7 @@ export function StudyTimeStats({ data, period, setPeriod }: StudyTimeStatsProps)
   const totalHours = data.reduce((sum, day) => sum + day.hours, 0);
 
   return (
-    <div className="bg-secondary/50 border border-white/10 rounded-xl p-6">
+    <div className="bg-white/5 border border-gray-200/10 rounded-xl p-6">
       <div className="flex justify-between items-center mb-6">
         <h3 className="font-medium">Study Time Analytics</h3>
         <div className="flex space-x-2">
@@ -49,7 +48,13 @@ export function StudyTimeStats({ data, period, setPeriod }: StudyTimeStatsProps)
             <YAxis stroke="#9CA3AF" />
             <Tooltip />
             <Legend />
-            <Line type="monotone" dataKey="hours" name="Hours Studied" stroke="#8b5cf6" strokeWidth={2} />
+            <Line 
+              type="monotone" 
+              dataKey="hours" 
+              name="Hours Studied" 
+              stroke="#8b5cf6" 
+              strokeWidth={2} 
+            />
           </LineChart>
         </ResponsiveContainer>
       </div>

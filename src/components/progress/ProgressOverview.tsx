@@ -1,5 +1,4 @@
-
-import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line } from "recharts";
 import { Award, Clock } from "lucide-react";
 
 interface ChartData {
@@ -22,19 +21,19 @@ export function ProgressOverview({ pieData, quizResultsData, studyTimeData }: Pr
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <div className="bg-secondary/50 border border-white/10 rounded-xl p-6">
+      <div className="bg-white/5 border border-gray-200/10 rounded-xl p-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-medium">Study Time Distribution</h3>
         </div>
         <div className="h-64">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={studyTimeData}>
+            <BarChart data={studyTimeData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2d2d2d" />
               <XAxis dataKey="name" stroke="#9CA3AF" />
               <YAxis stroke="#9CA3AF" />
               <Tooltip />
               <Bar dataKey="hours" fill="#8b5cf6" />
-            </LineChart>
+            </BarChart>
           </ResponsiveContainer>
         </div>
       </div>
